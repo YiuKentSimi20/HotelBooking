@@ -1,0 +1,15 @@
+Diagrama este o reprezentare abstracta a proiectului unde sunt prezentate notiunile tehnice (sistem tipuri, comenzi, workflow-uri, evenimente ...)
+
+Laboratorul 4, cel in care sunt intrebuintate instrumente bazate pe inteligenta artificiala ajuta la definirea speciifcatiilor 
+In acel laborator ati avut de ales din trei domenii, unul singur. 
+In subsidiar, in fiecare domeniu s-au precizat actorii principali si scenariile cheie.
+
+Pe baza domeniului, al actorilor principali si a scenariilor cheie s-au identificat evenimentele (conceptul de eveniment se regaseste in diagrama si trebuie implementat. aveti exemplu in repository )
+Ulterior, evenimentele au fost grupate in contexte  (conceptul de context se regaseste in diagrama si constituie o aplicatie intreaga )
+In ultimul rand , pentru fiecare dintre contextele si evenimentele identificate se extrag comenzile asociate (conceptul de comanda se regaseste in diagrama si trebuie implementat, aveti exemplu in repository).
+
+Ce este important de retinut este analogia (context = aplicatie separata)
+
+Fiecare dintre ele va trebui sa aiba propriul sistem de tipuri, propriile comenzi, propriile workflow-uri , propriile evenimente.
+Contextele vor trebui sa comunice intre ele fie pe cai sincrone (HTTP - am facut in saptamana VII ) sau asincrone (Cloud am facut in saptamana VIII).
+In concret, aplicatia 1 va trebui sa trimita un eveniment care va fi receptionat si prelucrat de aplicatia 2 iar aplicatia 2 un alt eveniment care va fi receptionat si prelucrat de aplicatia 3.
