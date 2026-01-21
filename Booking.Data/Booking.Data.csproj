@@ -7,17 +7,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Models\" />
-      <Folder Include="Repositories\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="CData.MySQL.EntityFrameworkCore" Version="24.0.9175" />
       <PackageReference Include="CData.MySQL.EntityFrameworkCore8" Version="25.0.9434" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.12" />
       <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
       <PackageReference Include="MySql.EntityFrameworkCore" Version="10.0.0-rc" />
       <PackageReference Include="Paramore.Brighter.MySql.EntityFrameworkCore" Version="10.0.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Booking.Domain\Booking.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Booking.Domain\Booking.Domain.csproj" />
     </ItemGroup>
 
 </Project>

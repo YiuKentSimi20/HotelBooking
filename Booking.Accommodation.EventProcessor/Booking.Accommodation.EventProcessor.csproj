@@ -5,23 +5,18 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>Booking.Accommodation.EventProcessor</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Booking.Dto\Booking.Dto.csproj" />
       <ProjectReference Include="..\HotelBooking.Events.ServiceBus\HotelBooking.Events.ServiceBus.csproj" />
       <ProjectReference Include="..\HotelBooking.Events\HotelBooking.Events.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.20.1" />
-      <PackageReference Include="CloudNative.CloudEvents.SystemTextJson" Version="2.8.0" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.12" />
-      <PackageReference Include="Microsoft.Extensions.Azure" Version="1.13.1" />
-      <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.2" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.2" />
-      <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
-      <PackageReference Include="MySql.EntityFrameworkCore" Version="10.0.0-rc" />
-      <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
+      <PackageReference Include="Microsoft.Extensions.Azure" Version="1.1.1" />
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
     </ItemGroup>
 
 </Project>

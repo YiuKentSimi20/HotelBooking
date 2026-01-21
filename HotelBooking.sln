@@ -48,6 +48,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontDesk.Accommodation.Eve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicing.Accommodation.EventProcessor", "Invoicing.Accommodation.EventProcessor\Invoicing.Accommodation.EventProcessor.csproj", "{DC265555-B436-4038-9B8D-24871CFF1A31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.Api", "Booking.Api\Booking.Api.csproj", "{D14C7699-9BB2-4D7F-83D7-E824003C0C3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingContext", "BookingContext\BookingContext.csproj", "{90E71C3B-75A1-45DB-B52F-7D97714022A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +78,7 @@ Global
 		{98C6DF6C-5E65-4C4C-9B1E-5ACAAD5D43B8} = {E00C9256-4CAD-48C1-9C27-5465AC42291E}
 		{8573B83C-D63D-42B6-B54A-2577A339518B} = {C021B15C-A8E4-4A56-A88B-3C5FD1748128}
 		{DC265555-B436-4038-9B8D-24871CFF1A31} = {110747FA-FC28-4093-A094-D2147A09AAFB}
+		{D14C7699-9BB2-4D7F-83D7-E824003C0C3D} = {E00C9256-4CAD-48C1-9C27-5465AC42291E}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C899DF05-B3F5-4491-A1F5-697FBF65E0B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -132,5 +137,13 @@ Global
 		{DC265555-B436-4038-9B8D-24871CFF1A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC265555-B436-4038-9B8D-24871CFF1A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC265555-B436-4038-9B8D-24871CFF1A31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D14C7699-9BB2-4D7F-83D7-E824003C0C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D14C7699-9BB2-4D7F-83D7-E824003C0C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D14C7699-9BB2-4D7F-83D7-E824003C0C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D14C7699-9BB2-4D7F-83D7-E824003C0C3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90E71C3B-75A1-45DB-B52F-7D97714022A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90E71C3B-75A1-45DB-B52F-7D97714022A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90E71C3B-75A1-45DB-B52F-7D97714022A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90E71C3B-75A1-45DB-B52F-7D97714022A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

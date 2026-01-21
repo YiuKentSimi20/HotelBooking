@@ -18,6 +18,7 @@ CREATE TABLE Bookings (
                           CustomerName NVARCHAR(200) NOT NULL,     -- Adaugat conform cerintei
                           CustomerEmail NVARCHAR(200) NOT NULL,
                           RoomType NVARCHAR(50) NOT NULL,
+                          RoomNumber NVARCHAR(10) NOT NULL,
                           CheckInDate DATE NOT NULL,
                           CheckOutDate DATE NOT NULL,
                           TotalAmount DECIMAL(18, 2) NOT NULL,
@@ -29,6 +30,29 @@ GO
 
 -- Index pentru căutări rapide
 CREATE INDEX IX_Bookings_CustomerEmail ON Bookings(CustomerEmail);
+GO
+
+-- 1. Tabela Rooms (Inventarul)
+CREATE TABLE Rooms (
+                       RoomId INT IDENTITY(1,1) PRIMARY KEY,    -- ID INT cu auto-incrementare
+                       RoomNumber NVARCHAR(10) NOT NULL UNIQUE,
+                       RoomType NVARCHAR(50) NOT NULL,
+                       IsClean BIT NOT NULL DEFAULT 1,          -- 1 = True, 0 = False
+                       IsOutOfService BIT NOT NULL DEFAULT 0,
+                       PricePerNight DECIMAL(18,2) NOT NULL
+);
+GO
+
+CREATE TABLE RoomAssignments (
+                                 AssignmentId INT IDENTITY(1,1) PRIMARY KEY, -- ID INT cu auto-incrementare
+                                 BookingId INT NOT NULL,                     -- Referință INT către BookingId
+                                 RoomId INT NOT NULL,
+                                 CheckInDate DATETIME2 NOT NULL DEFAULT GETDATE(),
+                                 CheckOutDate DATETIME2 NULL,
+
+
+                                 CONSTRAINT FK_Assignments_Rooms FOREIGN KEY (RoomId) REFERENCES Rooms(RoomId)
+);
 GO
 
 IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'Hotel_Invoicing_Db')
@@ -93,8 +117,8 @@ CREATE TABLE RoomAssignments (
                                  AssignmentId INT IDENTITY(1,1) PRIMARY KEY, -- ID INT cu auto-incrementare
                                  BookingId INT NOT NULL,                     -- Referință INT către BookingId
                                  RoomId INT NOT NULL,
-                                 CheckInTime DATETIME2 NOT NULL DEFAULT GETDATE(),
-                                 CheckOutTime DATETIME2 NULL,
+                                 CheckInDate DATETIME2 NOT NULL DEFAULT GETDATE(),
+                                 CheckOutDate DATETIME2 NULL,
                                  AccessCode NVARCHAR(20) NOT NULL,
 
                                  CONSTRAINT FK_Assignments_Rooms FOREIGN KEY (RoomId) REFERENCES Rooms(RoomId)

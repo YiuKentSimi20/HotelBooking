@@ -24,9 +24,9 @@ namespace Booking.Accommodation.EventProcessor
                     });
 
                     services.AddSingleton<IEventListener, ServiceBusTopicEventListener>();
-                    services.AddSingleton<IEventHandler, GradesPublishedEventHandler>();
+                    services.AddSingleton<IEventHandler, BookingPaidIntegrationEventHandler>();
 
-                    services.AddHostedService<Worker>();
+                    services.AddHostedService<EventLoggingWorker>();
                 });
     }
 }

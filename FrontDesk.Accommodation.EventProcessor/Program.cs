@@ -24,7 +24,7 @@ namespace FrontDesk.Accommodation.EventProcessor
                     });
 
                     services.AddSingleton<IEventListener, ServiceBusTopicEventListener>();
-                    services.AddSingleton<IEventHandler, GradesPublishedEventHandler>();
+                    //services.AddSingleton<IEventHandler, GradesPublishedEventHandler>();
 
                     services.AddHostedService<Worker>();
                 });

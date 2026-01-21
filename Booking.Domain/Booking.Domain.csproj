@@ -7,17 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Exceptions\" />
-      <Folder Include="Models\Commands\" />
-      <Folder Include="Models\Entities\" />
-      <Folder Include="Models\Events\" />
-      <Folder Include="Models\ValueObjects\" />
-      <Folder Include="Operations\" />
-      <Folder Include="Repositories\" />
-      <Folder Include="Workflows\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
     </ItemGroup>
 

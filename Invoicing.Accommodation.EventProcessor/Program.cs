@@ -1,5 +1,6 @@
 ﻿using HotelBooking.Events;
 using HotelBooking.Events.ServiceBus;
+using Invoicing.Dto.Events;
 using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,9 +25,9 @@ namespace Invoicing.Accommodation.EventProcessor
                     });
 
                     services.AddSingleton<IEventListener, ServiceBusTopicEventListener>();
-                    services.AddSingleton<IEventHandler, GradesPublishedEventHandler>();
+                    services.AddSingleton<IEventHandler, BookingPaidIntegrationEventHandler>();
 
-                    services.AddHostedService<Worker>();
+                    services.AddHostedService<BookingEventWorker>();
                 });
     }
 }
