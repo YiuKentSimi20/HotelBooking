@@ -15,7 +15,7 @@ namespace Invoicing.Accommodation.EventProcessor
     public Task StartAsync(CancellationToken cancellationToken)
     {
       Console.WriteLine("Invoice Logging Worker started...");
-      return eventListener.StartAsync("invoices", "invoices-subscription", cancellationToken);
+      return eventListener.StartAsync("invoices", "invoices-logging-subscription", cancellationToken);
     }
 
     public Task StopAsync(CancellationToken cancellationToken)

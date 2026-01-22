@@ -7,8 +7,6 @@ internal sealed class CalculatePriceOperation : BookingOperation
 {
     protected override IBooking OnRoomAssigned(RoomAssignedBooking booking)
     {
-        //TODO : Calculate number of nights between CheckInDate and CheckOutDate
-        
         // Calculate number of nights
         var nights = booking.CheckOutDate.DayNumber - booking.CheckInDate.DayNumber;
         

@@ -46,13 +46,11 @@ namespace Invoicing.Accommodation.EventProcessor
                     // Event listener and handler
                     services.AddSingleton<IEventListener, ServiceBusTopicEventListener>();
                     services.AddScoped<IEventHandler, BookingPaidIntegrationEventHandler>();
+                    services.AddScoped<IEventHandler, InvoiceIssuedIntegrationEventHandler>();
 
                     // Background worker
                     services.AddHostedService<BookingEventWorker>();
-                    
-                    //TODO: logging worker la invoicing
-                    
-                    //services.AddHostedService<EventLoggingWorker>();
+                    services.AddHostedService<EventLoggingWorker>();
                 });
     }
 }
