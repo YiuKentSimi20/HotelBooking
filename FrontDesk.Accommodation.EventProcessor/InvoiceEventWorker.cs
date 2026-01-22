@@ -3,24 +3,24 @@ using Microsoft.Extensions.Hosting;
 
 namespace FrontDesk.Accommodation.EventProcessor
 {
-  internal class Worker : IHostedService
+  internal class InvoiceEventWorker : IHostedService
   {
     private readonly IEventListener eventListener;
 
-    public Worker(IEventListener eventListener)
+    public InvoiceEventWorker(IEventListener eventListener)
     {
       this.eventListener = eventListener;
     }
 
     public Task StartAsync(CancellationToken cancellationToken)
     {
-      Console.WriteLine("Worker started...");
-      return eventListener.StartAsync("grades", "acctest", cancellationToken);
+      Console.WriteLine("Invoices listener Worker started...");
+      return eventListener.StartAsync("invoices", "invoices-subscription", cancellationToken);
     }
 
     public Task StopAsync(CancellationToken cancellationToken)
     {
-      Console.WriteLine("Worker stopped!");
+      Console.WriteLine("Invoices listener Worker stopped!");
       return eventListener.StopAsync(cancellationToken);
     }
   }

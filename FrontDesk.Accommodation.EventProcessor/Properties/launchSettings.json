@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "FrontDesk.Accomodation.EventProcessor": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "NETCORE_ENVIRONMENT": "development",
+        "ConnectionStrings:ServiceBus": "Endpoint=sb://sb-proiect-pssc.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=+EaiIaXrbzlT691oticop74GMxvoG1s+6+ASbGHo0y0=",
+        "ConnectionStrings:DefaultConnection": "Server=(localdb)\\ProjectModels;Database=Hotel_Accommodation_Db;Trusted_Connection=True;MultipleActiveResultSets=true"
+      }
+    }
+  }
+}

@@ -10,7 +10,7 @@ namespace Booking.Accommodation.EventProcessor
 
     protected override Task<EventProcessingResult> OnHandleAsync(BookingPaidIntegrationEvent eventData)
     {
-      Console.WriteLine(eventData.ToString());
+      Console.WriteLine("Data received from the ServiceBus paid-booking: \n" + eventData.ToString());
       return Task.FromResult(EventProcessingResult.Completed);
     }
   }

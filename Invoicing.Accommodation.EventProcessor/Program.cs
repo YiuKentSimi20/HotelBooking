@@ -1,6 +1,11 @@
-﻿using HotelBooking.Events;
+﻿using Example.Events.ServiceBus;
+using HotelBooking.Events;
 using HotelBooking.Events.ServiceBus;
-using Invoicing.Dto.Events;
+using Invoicing.Data;
+using Invoicing.Data.Repositories;
+using Invoicing.Domain.Repositories;
+using Invoicing.Domain.Workflows;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,15 +24,35 @@ namespace Invoicing.Accommodation.EventProcessor
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    // Database
+                    services.AddDbContext<InvoicingDbContext>(options => 
+                        options.UseSqlServer(hostContext.Configuration.GetConnectionString("DefaultConnection")));
+                    
+                    // Repositories
+                    services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+                    
+                    // Workflows
+                    services.AddScoped<GenerateInvoiceWorkflow>();
+                    
+                    // Azure Service Bus
                     services.AddAzureClients(builder =>
                     {
                         builder.AddServiceBusClient(hostContext.Configuration.GetConnectionString("ServiceBus"));
                     });
 
+                    // Event sender
+                    services.AddSingleton<IEventSender, ServiceBusTopicEventSender>();
+                    
+                    // Event listener and handler
                     services.AddSingleton<IEventListener, ServiceBusTopicEventListener>();
-                    services.AddSingleton<IEventHandler, BookingPaidIntegrationEventHandler>();
+                    services.AddScoped<IEventHandler, BookingPaidIntegrationEventHandler>();
 
+                    // Background worker
                     services.AddHostedService<BookingEventWorker>();
+                    
+                    //TODO: logging worker la invoicing
+                    
+                    //services.AddHostedService<EventLoggingWorker>();
                 });
     }
 }

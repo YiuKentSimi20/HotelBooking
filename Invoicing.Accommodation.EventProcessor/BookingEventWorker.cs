@@ -15,7 +15,7 @@ namespace Invoicing.Accommodation.EventProcessor
     public Task StartAsync(CancellationToken cancellationToken)
     {
       Console.WriteLine("Booking listening Worker started...");
-      return eventListener.StartAsync("bookings", "paid_bookings", cancellationToken);
+      return eventListener.StartAsync("bookings", "paid-bookings", cancellationToken);
     }
 
     public Task StopAsync(CancellationToken cancellationToken)

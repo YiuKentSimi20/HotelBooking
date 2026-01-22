@@ -13,9 +13,13 @@
       <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.2" />
       <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
       <PackageReference Include="MySql.EntityFrameworkCore" Version="10.0.0-rc" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\FrontDesk.Data\FrontDesk.Data.csproj" />
+      <ProjectReference Include="..\FrontDesk.Domain\FrontDesk.Domain.csproj" />
+      <ProjectReference Include="..\FrontDesk.Dto\FrontDesk.Dto.csproj" />
       <ProjectReference Include="..\HotelBooking.Events.ServiceBus\HotelBooking.Events.ServiceBus.csproj" />
       <ProjectReference Include="..\HotelBooking.Events\HotelBooking.Events.csproj" />
     </ItemGroup>

@@ -14,13 +14,13 @@ namespace Invoicing.Accommodation.EventProcessor
 
     public Task StartAsync(CancellationToken cancellationToken)
     {
-      Console.WriteLine("Invoice Worker started...");
-      return eventListener.StartAsync("bookings", "paid_bookings", cancellationToken);
+      Console.WriteLine("Invoice Logging Worker started...");
+      return eventListener.StartAsync("invoices", "invoices-subscription", cancellationToken);
     }
 
     public Task StopAsync(CancellationToken cancellationToken)
     {
-      Console.WriteLine("Invoice Worker stopped!");
+      Console.WriteLine("Invoice Logging Worker stopped!");
       return eventListener.StopAsync(cancellationToken);
     }
   }
