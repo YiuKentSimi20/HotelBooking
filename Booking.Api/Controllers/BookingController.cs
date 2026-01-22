@@ -94,7 +94,13 @@ public class BookingController : ControllerBase
             Timestamp = DateTime.UtcNow
         });
 
-        return Ok(new { success = true, bookingId = successEvent.BookingId });
+        return Ok(new
+        {
+            success = true, 
+            bookingId = successEvent.BookingId, RoomNumber = successEvent.RoomNumber,
+            checkInDate = successEvent.CheckInDate.ToString("yyyy-MM-dd"), 
+            checkOutDate = successEvent.CheckOutDate.ToString("yyyy-MM-dd")
+        });
     }
 
     private static BookTicketCommand MapInputToCommand(InputBooking input) => new(
