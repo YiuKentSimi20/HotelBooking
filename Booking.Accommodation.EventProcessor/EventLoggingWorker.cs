@@ -14,13 +14,13 @@ namespace Booking.Accommodation.EventProcessor
 
     public Task StartAsync(CancellationToken cancellationToken)
     {
-      Console.WriteLine("Worker started...");
+      Console.WriteLine("Booking logging Worker started...");
       return eventListener.StartAsync("bookings", "bookings-logging-subscription", cancellationToken);
     }
 
     public Task StopAsync(CancellationToken cancellationToken)
     {
-      Console.WriteLine("Worker stopped!");
+      Console.WriteLine("Booking logging Worker stopped!");
       return eventListener.StopAsync(cancellationToken);
     }
   }
