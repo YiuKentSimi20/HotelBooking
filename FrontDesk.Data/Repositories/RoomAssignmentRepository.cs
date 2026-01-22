@@ -21,7 +21,7 @@ public class RoomAssignmentRepository : IRoomAssignmentRepository
             BookingId = checkIn.BookingId,
             RoomId = checkIn.RoomId,
             CheckInDate = checkIn.CheckInDate,
-            CheckOutDate = null, // Guest hasn't checked out yet
+            CheckOutDate = checkIn.CheckOutDate,
             AccessCode = checkIn.AccessCode.Value
         };
 
@@ -30,9 +30,5 @@ public class RoomAssignmentRepository : IRoomAssignmentRepository
 
         return entity.AssignmentId;
     }
-
-    public async Task<bool> AssignmentExistsForBookingAsync(int bookingId)
-    {
-        return await _context.RoomAssignments.AnyAsync(a => a.BookingId == bookingId);
-    }
+    
 }

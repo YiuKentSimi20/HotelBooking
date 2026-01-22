@@ -13,13 +13,6 @@ public class CheckInWorkflow
         IRoomRepository roomRepository,
         IRoomAssignmentRepository assignmentRepository)
     {
-        // Check if assignment already exists for this booking (idempotency)
-        var exists = await assignmentRepository.AssignmentExistsForBookingAsync(command.BookingId);
-        if (exists)
-        {
-            return new CheckInCompletedEvent.CheckInFailed(
-                new[] { $"Room assignment already exists for booking {command.BookingId}" });
-        }
 
         var unvalidated = new UnvalidatedCheckIn(command);
 
@@ -30,9 +23,6 @@ public class CheckInWorkflow
         {
             // Save room assignment
             var assignmentId = await assignmentRepository.SaveRoomAssignmentAsync(accessCodeGenerated);
-
-            // Mark room as dirty (will need cleaning after checkout)
-            await roomRepository.MarkRoomAsDirtyAsync(accessCodeGenerated.RoomId);
 
             // Create completed check-in
             var completed = new CompletedCheckIn(
